@@ -1,0 +1,5 @@
+AZURE_PGSQL_CONNECTIONSTRING=jdbc:postgresql://pgsqlsvr1216.postgres.database.chinacloudapi.cn:5432/postgres?sslmode=require&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory&user=<azure_client_id>&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin&azure.authorityHost=https://login.partner.microsoftonline.cn&azure.scopes=https://ossrdbms-aad.database.chinacloudapi.cn/.default&azure.hostNameInCertificate=*.database.chinacloudapi.cn
+azure.clientid=ad474391-fd73-4024-8eb2-ea92b1f6a396
+azure.username=mi-1202
+azure.pg.connectionstring=jdbc:postgresql://<db_server_name>.postgres.database.chinacloudapi.cn:5432/<db_name>?sslmode=require&sslfactory=org.postgresql.ssl.DefaultJavaSSLFactory&user=<azure_client_id>&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin&azure.authorityHost=https://login.partner.microsoftonline.cn&azure.scopes=https://ossrdbms-aad.database.chinacloudapi.cn/.default&azure.hostNameInCertificate=*.database.chinacloudapi.cn
+azure.pg.username=mi-1202
