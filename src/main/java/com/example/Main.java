@@ -7,6 +7,10 @@ import java.util.Properties;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import com.azure.core.credential.TokenRequestContext;
+import com.azure.identity.DefaultAzureCredential;
+import com.azure.identity.DefaultAzureCredentialBuilder;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -28,6 +32,9 @@ public class Main {
         // Substitute environment variables in the connection string
         connString = substituteEnvVariables(connString);
         System.out.println("connString = " + connString);
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
+        String accessToken = credential.getToken(new TokenRequestContext().addScopes("https://ossrdbms-aad.database.chinacloudapi.cn/.default")).block().getToken();
+        connString = connString + "&password=" + accessToken;
         Connection connection = DriverManager.getConnection(connString);
         System.out.println("connection = " + connection.toString());
     }
