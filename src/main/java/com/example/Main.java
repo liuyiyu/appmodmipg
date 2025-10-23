@@ -1,5 +1,9 @@
 package com.example;
 
+import com.azure.core.credential.TokenRequestContext;
+import com.azure.identity.DefaultAzureCredential;
+import com.azure.identity.DefaultAzureCredentialBuilder;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -27,6 +31,11 @@ public class Main {
         String connString = properties.getProperty("AZURE_PGSQL_CONNECTIONSTRING");
         // Substitute environment variables in the connection string
         connString = substituteEnvVariables(connString);
+        // Create the DefaultAzureCredential instance
+        DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
+        // Obtain an access token
+        String accessToken = credential.getToken(new TokenRequestContext().addScopes("https://ossrdbms-aad.database.chinacloudapi.cn/.default")).block().getToken();
+        connString = connString + "&password=" + accessToken;
         System.out.println("connString = " + connString);
         Connection connection = DriverManager.getConnection(connString);
         System.out.println("connection = " + connection.toString());

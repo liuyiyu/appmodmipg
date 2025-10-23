@@ -15,16 +15,11 @@ This example shows how to connect to Azure Database for PostgreSQL in a Java pro
 ## How to Run This Example
 
 ```shell
-# Log in to Azure China
-az cloud set --name AzureChinaCloud
-az login --username <your-username> --password <your-password>
-
 # Set environment variables
 export PGHOST=<your-db-server>.postgres.database.chinacloudapi.cn
-export PGUSER=<your-username>@cecccic.partner.onmschina.cn
 export PGPORT=5432
 export PGDATABASE=postgres
-export PGPASSWORD="$(az account get-access-token --resource https://ossrdbms-aad.database.chinacloudapi.cn --query accessToken --output tsv)"
+export MANAGED_IDENTITY_NAME=<your-managed-identity-name>
 
 # Package the application
 mvn clean install
