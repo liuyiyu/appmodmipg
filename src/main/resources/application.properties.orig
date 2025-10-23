@@ -1,1 +1,0 @@
-AZURE_PGSQL_CONNECTIONSTRING=jdbc:postgresql://[your-database-hostname].postgres.database.azure.com:5432/[your-database-name]?user=[your-username]@[your-database-hostname]&password=[your-password]&ssl=true

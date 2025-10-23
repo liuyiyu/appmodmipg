@@ -16,20 +16,12 @@
     </properties>
 
     <dependencies>
-        <!--
-        <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <version>10.2.0.jre11</version>
-        </dependency>
-        -->
 
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.3.6</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -60,6 +52,7 @@
                                 </excludes>
                             </filter>
                         </filters>
+                        <createDependencyReducedPom>false</createDependencyReducedPom>
                     </configuration>
                 </execution>
             </executions>
