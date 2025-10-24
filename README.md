@@ -20,7 +20,6 @@ export PGHOST=pgsqlsvr1216.postgres.database.chinacloudapi.cn
 export PGPORT=5432
 export PGDATABASE=postgres
 export MANAGED_IDENTITY_NAME=mi-1202
-export MANAGED_IDENTITY_CLIENT_ID=ad474391-fd73-4024-8eb2-ea92b1f6a396
 export CLOUD_TYPE=AZURE_CHINA
 
 # Package the application
