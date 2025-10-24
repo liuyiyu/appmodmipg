@@ -16,10 +16,11 @@ This example shows how to connect to Azure Database for PostgreSQL in a Java pro
 
 ```shell
 # Set environment variables
-export PGHOST=<your-db-server>.postgres.database.chinacloudapi.cn
+export PGHOST=pgsqlsvr1216.postgres.database.chinacloudapi.cn
 export PGPORT=5432
 export PGDATABASE=postgres
-export MANAGED_IDENTITY_NAME=<your-managed-identity-name>
+export MANAGED_IDENTITY_NAME=mi-1202
+export MANAGED_IDENTITY_CLIENT_ID=ad474391-fd73-4024-8eb2-ea92b1f6a396
 
 # Package the application
 mvn clean install
