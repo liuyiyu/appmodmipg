@@ -1,0 +1,34 @@
+spring:
+  shardingsphere:
+    # Active datasource: dataSource1 (PostgreSQL) or dataSource2 (SQL Server)
+    active-datasource: dataSource1
+    dataSource1:
+      name: dataSource1
+      driver-class-name: org.postgresql.Driver
+      url:  jdbc:postgresql://localhost:5432/testdb
+      username: testuser
+      password: testpass
+      max-life-time: 30000
+      connection-timeout: 20000
+    dataSource2:
+      name: dataSource2
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      url: jdbc:sqlserver://localhost:1433;databaseName=testdb2;encrypt=false
+      username: sa
+      password: YourStrong@Passw0rd
+    props:
+      sql-show: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+
+server:
+  port: 8080
