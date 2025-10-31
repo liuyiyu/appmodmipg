@@ -5,9 +5,9 @@ spring:
     dataSource1:
       name: dataSource1
       driver-class-name: org.postgresql.Driver
-      url:  jdbc:postgresql://localhost:5432/testdb
-      username: testuser
-      password: testpass
+      url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?user=${MANAGED_IDENTITY_NAME}&sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin&azure.authorityHost=https://login.partner.microsoftonline.cn&azure.scopes=https://ossrdbms-aad.database.chinacloudapi.cn/.default&azure.managedIdentityEnabled=true&azure.clientId=${MANAGED_IDENTITY_CLIENT_ID}
+      # username: testuser
+      # password: testpass
       max-life-time: 30000
       connection-timeout: 20000
     dataSource2:
