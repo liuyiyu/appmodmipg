@@ -14,10 +14,13 @@ public class DataSource1Config {
     private String driverClassName;
     @Value("${spring.shardingsphere.dataSource1.url}")
     private String url;
-    @Value("${spring.shardingsphere.dataSource1.username}")
-    private String username;
-    @Value("${spring.shardingsphere.dataSource1.password}")
-    private String password;
+    
+    // Comment out username and password properties because PostgreSQL now authenticates using managed identity
+    // @Value("${spring.shardingsphere.dataSource1.username}")
+    // private String username;
+    // @Value("${spring.shardingsphere.dataSource1.password}")
+    // private String password;
+    
     @Value("${spring.shardingsphere.dataSource1.max-life-time}")
     private long maxLifeTime;
     @Value("${spring.shardingsphere.dataSource1.connection-timeout}")
