@@ -5,9 +5,17 @@ spring:
     dataSource1:
       name: dataSource1
       driver-class-name: org.postgresql.Driver
-      url:  jdbc:postgresql://localhost:5432/testdb
-      username: testuser
-      password: testpass
+      # Updated JDBC URL for Azure PostgreSQL with Managed Identity authentication for Mooncake (21V China)
+      # Remember to set the following environment variables:
+      # - PGHOST: Azure PostgreSQL server hostname
+      # - PGPORT: Azure PostgreSQL server port (typically 5432)
+      # - PGDATABASE: Database name
+      # - MANAGED_IDENTITY_NAME: Name of the managed identity
+      # - MANAGED_IDENTITY_CLIENT_ID: Client ID of the managed identity
+      url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?user=${MANAGED_IDENTITY_NAME}&sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin&azure.authorityHost=https://login.partner.microsoftonline.cn&azure.scopes=https://ossrdbms-aad.database.chinacloudapi.cn/.default&azure.managedIdentityEnabled=true&azure.clientId=${MANAGED_IDENTITY_CLIENT_ID}
+      # Comment out username and password because PostgreSQL now authenticates using managed identity
+      # username: testuser
+      # password: testpass
       max-life-time: 30000
       connection-timeout: 20000
     dataSource2:
