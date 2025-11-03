@@ -31,8 +31,9 @@ public class ShardingConfig {
         if ("dataSource1".equals(activeDataSource)) {
             hikariDataSource.setDriverClassName(dataSource1Config.getDriverClassName());
             hikariDataSource.setJdbcUrl(dataSource1Config.getUrl());
-            hikariDataSource.setUsername(dataSource1Config.getUsername());
-            hikariDataSource.setPassword(dataSource1Config.getPassword());
+            // Comment out setUsername and setPassword because PostgreSQL now authenticates using managed identity
+            // hikariDataSource.setUsername(dataSource1Config.getUsername());
+            // hikariDataSource.setPassword(dataSource1Config.getPassword());
             hikariDataSource.setMaxLifetime(dataSource1Config.getMaxLifeTime());
             hikariDataSource.setConnectionTimeout(dataSource1Config.getConnectionTimeout());
             log.info("Configured datasource: PostgreSQL ({})", dataSource1Config.getUrl());
