@@ -24,7 +24,7 @@ spring:
       #       - azure_us_government: https://login.microsoftonline.us
       #       - azure: https://login.microsoftonline.com
       # url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?user=${MANAGED_IDENTITY_NAME}&sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin&azure.authorityHost=https://login.partner.microsoftonline.cn&azure.scopes=https://ossrdbms-aad.database.chinacloudapi.cn/.default&azure.managedIdentityEnabled=true&azure.clientId=${MANAGED_IDENTITY_CLIENT_ID}
-      url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?user=${SERVICE_PRINCIPAL_NAME}&sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin&azure.clientId=${SERVICE_PRINCIPAL_CLIENT_ID}&azure.clientSecret=${SERVICE_PRINCIPAL_CLIENT_SECRET}&azure.tenantId=${SERVICE_PRINCIPAL_TENANT_ID}&https://ossrdbms-aad.database.chinacloudapi.cn/.default&azure.authorityHost=https://login.partner.microsoftonline.cn
+      url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}?user=${SERVICE_PRINCIPAL_NAME}&sslmode=require&authenticationPluginClassName=com.azure.identity.extensions.jdbc.postgresql.AzurePostgresqlAuthenticationPlugin&azure.clientId=${SERVICE_PRINCIPAL_CLIENT_ID}&azure.clientSecret=${SERVICE_PRINCIPAL_CLIENT_SECRET}&azure.tenantId=${SERVICE_PRINCIPAL_TENANT_ID}&azure.scope=https://ossrdbms-aad.database.chinacloudapi.cn/.default&azure.authorityHost=https://login.partner.microsoftonline.cn
       # Comment out username and password because PostgreSQL now authenticates using managed identity
       # username: testuser
       # password: testpass
