@@ -24,7 +24,7 @@ public class Main {
             return;
         }
 
-        String connString = properties.getProperty("AZURE_PGSQL_CONNECTIONSTRING");
+        String connString = properties.getProperty("AZURE_MYSQL_CONNECTIONSTRING");
         // Substitute environment variables in the connection string
         connString = substituteEnvVariables(connString);
         System.out.println("connString = " + connString);
